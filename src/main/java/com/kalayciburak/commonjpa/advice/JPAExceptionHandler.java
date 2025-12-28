@@ -26,7 +26,7 @@ public class JPAExceptionHandler extends BaseExceptionHandler {
     @ExceptionHandler(EntityExistsException.class)
     public ResponseEntity<ErrorResponse<?>> handleEntityExistsException(EntityExistsException exception) {
         var error = new ErrorResponse<>(
-                Types.Exception.ENTITY_EXISTS,
+                Types.Error.ENTITY_EXISTS,
                 Codes.ENTITY_EXISTS,
                 Messages.Error.ENTITY_EXISTS,
                 HttpStatus.CONFLICT,
@@ -47,7 +47,7 @@ public class JPAExceptionHandler extends BaseExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ErrorResponse<?>> handleEntityNotFoundException(EntityNotFoundException exception) {
         var error = new ErrorResponse<>(
-                Types.Exception.ENTITY_NOT_FOUND,
+                Types.Error.ENTITY_NOT_FOUND,
                 Codes.ENTITY_NOT_FOUND,
                 Messages.Error.ENTITY_NOT_FOUND,
                 HttpStatus.NOT_FOUND,
